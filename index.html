@@ -14265,9 +14265,18 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="By:-Anuoluwapo-Faboro,-John-Gansallo-&amp;-Zikora-Anyaoku">By: Anuoluwapo Faboro, John Gansallo &amp; Zikora Anyaoku<a class="anchor-link" href="#By:-Anuoluwapo-Faboro,-John-Gansallo-&amp;-Zikora-Anyaoku">&#182;</a></h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2><u> <strong>Table of contents:</strong></h2>
 <ol>
-<li>Introduction</li>
+<li>Introduction<ul>
+<li>About the data</li>
+<li>Library Used</li>
+</ul>
+</li>
 <li>Data Collection<ul>
 <li>Document Set Up</li>
 <li>Accessing the Data</li>
@@ -14298,6 +14307,9 @@ a.anchor-link {
 <li>Duration</li>
 <li>Tempo</li>
 </ul>
+<p>The dataset contains over 160,000 songs gathered from the Spotify Web API, with song, artist, and release date information as well as song qualities such as acousticness, danceability, volume, tempo, and so on. The time span is from 1922 through 2020.
+When grabbing each track from the dataset, we can obtain track information such as track name, album, release date, length, and popularity. More importantly, Spotify’s API allows us to extract a number of audio features such as danceability, energy, instrumentalness, liveness, loudness, speechiness, acousticness, and tempo.</p>
+<p>We live in the Big Data era. We can collect a large amount of data, allowing us to derive useful conclusions and make well-informed strategic decisions. However, as the volume of data grows, analyzing and exploring it becomes more difficult. When utilized effectively and responsibly, visualizations can be powerful tools in exploratory data research.Visualizations can also be used to convey a message or inform our audience about our results. Because there is no one-size-fits-all approach of visualization, different tasks involve diverse types of visualizations. In this study, we'll look at the Spotify dataset, which is available on Kaggle.</p>
 
 </div>
 </div>
@@ -14331,7 +14343,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[247]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install opendatasets
@@ -14360,19 +14372,32 @@ a.anchor-link {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Requirement already satisfied: opendatasets in /opt/conda/lib/python3.8/site-packages (0.1.20)
+<pre>Collecting opendatasets
+  Downloading opendatasets-0.1.20-py3-none-any.whl (14 kB)
 Requirement already satisfied: tqdm in /opt/conda/lib/python3.8/site-packages (from opendatasets) (4.56.0)
-Requirement already satisfied: kaggle in /opt/conda/lib/python3.8/site-packages (from opendatasets) (1.5.12)
 Requirement already satisfied: click in /opt/conda/lib/python3.8/site-packages (from opendatasets) (7.1.2)
-Requirement already satisfied: python-slugify in /opt/conda/lib/python3.8/site-packages (from kaggle-&gt;opendatasets) (5.0.2)
-Requirement already satisfied: certifi in /opt/conda/lib/python3.8/site-packages (from kaggle-&gt;opendatasets) (2020.12.5)
-Requirement already satisfied: urllib3 in /opt/conda/lib/python3.8/site-packages (from kaggle-&gt;opendatasets) (1.26.2)
+Collecting kaggle
+  Downloading kaggle-1.5.12.tar.gz (58 kB)
+     |████████████████████████████████| 58 kB 3.2 MB/s eta 0:00:011
 Requirement already satisfied: six&gt;=1.10 in /opt/conda/lib/python3.8/site-packages (from kaggle-&gt;opendatasets) (1.15.0)
+Requirement already satisfied: certifi in /opt/conda/lib/python3.8/site-packages (from kaggle-&gt;opendatasets) (2020.12.5)
 Requirement already satisfied: python-dateutil in /opt/conda/lib/python3.8/site-packages (from kaggle-&gt;opendatasets) (2.8.1)
 Requirement already satisfied: requests in /opt/conda/lib/python3.8/site-packages (from kaggle-&gt;opendatasets) (2.25.1)
-Requirement already satisfied: text-unidecode&gt;=1.3 in /opt/conda/lib/python3.8/site-packages (from python-slugify-&gt;kaggle-&gt;opendatasets) (1.3)
-Requirement already satisfied: chardet&lt;5,&gt;=3.0.2 in /opt/conda/lib/python3.8/site-packages (from requests-&gt;kaggle-&gt;opendatasets) (4.0.0)
+Requirement already satisfied: urllib3 in /opt/conda/lib/python3.8/site-packages (from kaggle-&gt;opendatasets) (1.26.2)
+Collecting python-slugify
+  Downloading python_slugify-5.0.2-py2.py3-none-any.whl (6.7 kB)
+Collecting text-unidecode&gt;=1.3
+  Downloading text_unidecode-1.3-py2.py3-none-any.whl (78 kB)
+     |████████████████████████████████| 78 kB 3.0 MB/s eta 0:00:01
 Requirement already satisfied: idna&lt;3,&gt;=2.5 in /opt/conda/lib/python3.8/site-packages (from requests-&gt;kaggle-&gt;opendatasets) (2.10)
+Requirement already satisfied: chardet&lt;5,&gt;=3.0.2 in /opt/conda/lib/python3.8/site-packages (from requests-&gt;kaggle-&gt;opendatasets) (4.0.0)
+Building wheels for collected packages: kaggle
+  Building wheel for kaggle (setup.py) ... done
+  Created wheel for kaggle: filename=kaggle-1.5.12-py3-none-any.whl size=73053 sha256=24ec0ef5a4aa673ccceb120812761180139371c96784f57925435ac40d261304
+  Stored in directory: /home/jovyan/.cache/pip/wheels/29/da/11/144cc25aebdaeb4931b231e25fd34b394e6a5725cbb2f50106
+Successfully built kaggle
+Installing collected packages: text-unidecode, python-slugify, kaggle, opendatasets
+Successfully installed kaggle-1.5.12 opendatasets-0.1.20 python-slugify-5.0.2 text-unidecode-1.3
 </pre>
 </div>
 </div>
@@ -14391,10 +14416,10 @@ Requirement already satisfied: idna&lt;3,&gt;=2.5 in /opt/conda/lib/python3.8/si
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[58]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">od</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">od</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks&#39;</span><span class="p">)</span> <span class="c1">#Retrieves dataset from Kaggle with an API Token</span>
 </pre></div>
 
      </div>
@@ -14415,8 +14440,7 @@ Requirement already satisfied: idna&lt;3,&gt;=2.5 in /opt/conda/lib/python3.8/si
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Please provide your Kaggle credentials to download this dataset. Learn more: http://bit.ly/kaggle-creds
-Your Kaggle username: michellefab
-Your Kaggle Key: ········
+Your Kaggle username: johnganzy
 Your Kaggle Key: ········
 </pre>
 </div>
@@ -14429,7 +14453,7 @@ Your Kaggle Key: ········
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>  1%|          | 1.00M/195M [00:00&lt;00:33, 6.01MB/s]</pre>
+<pre>  0%|          | 0.00/195M [00:00&lt;?, ?B/s]</pre>
 </div>
 </div>
 
@@ -14452,7 +14476,7 @@ Your Kaggle Key: ········
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>100%|██████████| 195M/195M [00:13&lt;00:00, 15.7MB/s] 
+<pre>100%|██████████| 195M/195M [00:08&lt;00:00, 23.7MB/s] 
 </pre>
 </div>
 </div>
@@ -14476,10 +14500,10 @@ Your Kaggle Key: ········
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[225]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tfile</span> <span class="o">=</span> <span class="s1">&#39;spotify-dataset-19212020-160k-tracks/tracks.csv&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tfile</span> <span class="o">=</span> <span class="s1">&#39;spotify-dataset-19212020-160k-tracks/tracks.csv&#39;</span> <span class="c1">#Spotify Dataset for audio features of tracks</span>
 <span class="n">tracks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">tfile</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tracks</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">tracks</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -14510,7 +14534,7 @@ Your Kaggle Key: ········
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[225]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 
 
 
@@ -14701,7 +14725,7 @@ Your Kaggle Key: ········
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[215]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tracks</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tracks</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="c1">#Check if tracks in dataset is null or contains missing data</span>
 </pre></div>
 
      </div>
@@ -15616,6 +15640,16 @@ Name: release_date, dtype: object</pre>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Exploratory-Data-Analysis">Exploratory Data Analysis<a class="anchor-link" href="#Exploratory-Data-Analysis">&#182;</a></h1><p>Examining the relationship between the popularity of songs vs the identified aspects. The Exploratory Data Analysis step is a chance to examine the dataset to identify patterns within the dataset. Occasionally, while examining the dataset you may find that different features may not be related at all.</p>
+<h3 id="Attribute-Categories">Attribute Categories<a class="anchor-link" href="#Attribute-Categories">&#182;</a></h3><ul>
+<li>Danceability: Any general attribute relating to dancing</li>
+<li>Energy: </li>
+<li>Instrumentalness: </li>
+<li>Liveness: </li>
+<li>Loudness:</li>
+<li>Speechiness: </li>
+<li>Acousticness: </li>
+<li>Tempo:</li>
+</ul>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -16823,6 +16857,48 @@ Name: release_date, dtype: object</pre>
 
 </div>
 
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">regression</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;popularity ~ danceability&#39;</span><span class="p">,</span> <span class="n">tracks</span> <span class="o">=</span> <span class="n">tracks</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">regression</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-12-9cfba677f5e8&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>regression <span class="ansi-blue-fg">=</span> ols<span class="ansi-blue-fg">(</span>formula <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;popularity ~ danceability&#39;</span><span class="ansi-blue-fg">,</span> tracks <span class="ansi-blue-fg">=</span> tracks<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>fit<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>regression<span class="ansi-blue-fg">.</span>summary<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">TypeError</span>: from_formula() missing 1 required positional argument: &#39;data&#39;</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -16831,9 +16907,11 @@ Name: release_date, dtype: object</pre>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We now want to put our theory to the test. However, let's have a clear picture of what hypothesis testing entails. Hypothesis testing is a statistical approach for assessing if a model you've constructed is a good match or not. Hypothesis testing consists of two types of hypotheses: a null hypothesis and an alternative hypothesis. The objective is that you want to put up your hypothesis in such a way that the null hypothesis is rejected. So now, what is the interpretation of rejecting a hypothesis? This is when the amount of relevance comes into play. In addition to the hypotheses, you must provide a significance level while planning your experiment. You reject the null hypothesis if the p value of your random variable is less than your significance level, also known as the rejection level. When deciding whether or not to reject your null hypothesis, make sure to consider the sort of test you're running: one-tailed or two-tailed?</p>
+<p>We want to collect data from every song Beyonce has ever released for our study. The API can be used to produce a dataset in a few different ways. We could get a list of the artist's albums and then play each album track on a loop.
+Alternatively, we could cycle through a playlist we find on Spotify that has every track Beyonce has to offer, which would possibly more efficient.</p>
 <p>Look at Beyonce's tracklist on Spotify and see if there's no linearity between the song features, the null hypothesis. The alternative hypothesis is that there is linearity between the song features.</p>
-<p>So look at artists(beyonce) based on the past tracks they've dropped and make a hypothesis using linear regression on whether the danceability will be greater than 0.5
-less*</p>
+<p>So look at artists(beyonce) based on the past tracks they've dropped and make a hypothesis using linear regression on whether the danceability will be greater than or less than 0.5</p>
 
 </div>
 </div>
