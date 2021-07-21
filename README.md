@@ -6,7 +6,8 @@ With the introduction of streaming, through services such as Spotify and Apple M
 
 * Explictness
 * Danceability
-Speechiness
-Duration
-Set Up
+* Speechiness
+* Duration
+
+## Set Up
 Below provides all the packages you'll need in order to peform the data science. There may be some packages that may not be recognizable to you. For example, the package opendatasets helps download datasets.
